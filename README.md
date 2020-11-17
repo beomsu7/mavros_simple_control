@@ -16,4 +16,4 @@ catkin_create_pkg mavros_simple_control rospy mavros mavros_msgs geometry_msgs
 cd mavros_simple_control
 touch py.py
 chmod 777 py.py
-``
+```
