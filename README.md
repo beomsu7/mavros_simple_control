@@ -17,3 +17,5 @@ cd mavros_simple_control
 touch py.py
 chmod 777 py.py
 ```
+
+# image
