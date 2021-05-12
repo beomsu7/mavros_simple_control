@@ -22,6 +22,19 @@ To control the px4 at the offboard side(with remote pc) with mavros
 Then Topics like /mavros/setpoint ~~  is the way to control   
 And in my case I used the /mavros/setpoint_raw/local   
 
+The code reference is https://github.com/ros-teleop/teleop_twist_keyboard
+
+# control
+(1) make your drone to OFFBOARD mode - press 'q'   
+(2) make your drone arming           - press 'e'   
+(3) make your drone take off         - press 'iiiiii..'
+(4) move                             - w(+x position), s(-x position), a(+y), d(-y), k(-z), j(+yaw), l(-yaw)   
+
+if you test real drone then   
+(1) make the take off height         - press 'iiiii...'   
+(2) make the drone arming            - with your controller   
+(3) make the drone OFFBOARD mode     - with your controller   
+(4) move   
 # image
 ![image1](https://user-images.githubusercontent.com/72853382/99606499-37af0f00-2a4d-11eb-892a-a3bf923be681.png)
 As what u can see this is just a keyboard controller which can call service set_mode, arming and publish set_point local pose topic
