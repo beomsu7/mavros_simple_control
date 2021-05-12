@@ -5,19 +5,24 @@ When we use px4 and mavros there are some topics that we can publish to contorl 
 Arming, Offboard, Land, move position(x, y, z), rotation(only with Z axis)
 
 # warning
-It woks but when git clone and build then I can't run the py.py
-also it doesn't work with you then make it
+mayb some setup is not perfect so
+should make the py.py excutable
+and this is simple controller with keyboard
+
+The initial position is 0,0,0 so please make your drone near the zero position
 ```
 cd ~/catkin_ws/src # if your work space is catkin_ws
-catkin_create_pkg mavros_simple_control rospy mavros mavros_msgs geometry_msgs
+git clone https://github.com/beomsu7/mavros_simple_control
 cd mavros_simple_control
-touch py.py
 chmod 777 py.py
+cd ~/catkin_ws && catkin build mavros_simple_control && source devel/setup.bash
 ```
-copy and paste the contents of py.py and build and run
+#explainment
+To control the px4 at the offboard side(with remote pc) with mavros
+Then Topics like /mavros/setpoint ~~  is the way to control
+And in my case I used the /mavros/setpoint_raw/local
 
 # image
 ![image1](https://user-images.githubusercontent.com/72853382/99606499-37af0f00-2a4d-11eb-892a-a3bf923be681.png)
 As what u can see this is just a keyboard controller which can call service set_mode, arming and publish set_point local pose topic
 
--update 21march,21 now it can rotate
