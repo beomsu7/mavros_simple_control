@@ -144,6 +144,8 @@ class PublishThread(threading.Thread):
             # Publish.
             self.publisher.publish(pos)
 
+            
+
         # Publish stop message when thread exits.
         pos.position.x = 0
         pos.position.y = 0
@@ -154,6 +156,7 @@ class PublishThread(threading.Thread):
 
 
 if __name__=="__main__":
+    msg_cnt = 0
     settings = termios.tcgetattr(sys.stdin)
 
     rospy.init_node('teleop_setpoint_keyboard')
@@ -163,13 +166,18 @@ if __name__=="__main__":
 
     repeat = rospy.get_param("~repeat_rate", 20)
     pub_thread = PublishThread(repeat)
+    pos_x = 0.0
+    pos_y = 0.0
+    pos_z = 0.0
+    yaw = 0.0
 
-    pos_x = 0
-    pos_y = 0
-    pos_z = 0
-    yaw = 0
-    pos = PositionTarget()
     print(msg)
+    txt = ""
+    txt += 'x : ' + str(pos_x)
+    txt += ', y : ' + str(pos_y)
+    txt += ', z : ' + str(pos_z)
+    txt += ', deg : ' + str(yaw*180/3.1415)
+    print(txt, end="")
 
     try:
         pub_thread.wait_for_subscribers()
@@ -191,6 +199,9 @@ if __name__=="__main__":
                 pos_z += moveBindings[key][2] * 0.1
                 yaw += moveBindings[key][3] * 3.1415 / 20          
                 if pos_z <= 0 : pos_z = 0
+                
+
+                
 
             else:
                 # stopped.
@@ -202,8 +213,8 @@ if __name__=="__main__":
             print('pos_x : ',pos_x)
             print('pos_y : ',pos_y)
             print('pos_z : ',pos_z)
-            print('yaw : ',yaw)
-
+            print('yaw : ',yaw*180/3.1415)
+            
     except Exception as e:
         print(e)
 
