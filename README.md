@@ -17,7 +17,7 @@ cd mavros_simple_control
 chmod 777 py.py
 cd ~/catkin_ws && catkin build mavros_simple_control && source devel/setup.bash
 ```
-#explainment
+# explainment
 To control the px4 at the offboard side(with remote pc) with mavros
 Then Topics like /mavros/setpoint ~~  is the way to control
 And in my case I used the /mavros/setpoint_raw/local
