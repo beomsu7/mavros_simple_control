@@ -25,6 +25,10 @@ And in my case I used the /mavros/setpoint_raw/local
 The code reference is https://github.com/ros-teleop/teleop_twist_keyboard
 
 # control
+- rosrun mavros_simple_control py.py # publish /mavros/setpoint_raw/local   
+or
+- rosrun mavros_simple_control py_pos.py # publish /mavros/setpoint_position/local   
+   
 (1) make your drone to OFFBOARD mode - press 'q'   
 (2) make your drone arming           - press 'e'   
 (3) make your drone take off         - press 'iiiiii..'
