@@ -24,6 +24,9 @@ And in my case I used the /mavros/setpoint_raw/local
 
 The code reference is https://github.com/ros-teleop/teleop_twist_keyboard
 
+py2.py is little bit diff with py.py
+py.py is headless mode and py2.py is normal mode
+
 # control
 - rosrun mavros_simple_control py.py # publish /mavros/setpoint_raw/local   
 or
